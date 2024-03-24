@@ -5,13 +5,15 @@ import practice2.core.member.Member;
 import practice2.core.member.MemberService;
 import practice2.core.member.MemberServiceImpl;
 import practice2.core.order.Order;
+import practice2.core.order.OrderService;
 import practice2.core.order.OrderServiceImpl;
 
 public class OrderApp {
 
     public static void main(String[] args) {
-        MemberService memberService = new MemberServiceImpl();
-        OrderServiceImpl orderService = new OrderServiceImpl();
+        AppConfig appConfig = new AppConfig();
+        MemberService memberService = appConfig.memberService();
+        OrderService orderService = appConfig.orderService();
 
         Long memberId = 1L;
         Member member = new Member(memberId, "Jochong", Grade.VIP);
