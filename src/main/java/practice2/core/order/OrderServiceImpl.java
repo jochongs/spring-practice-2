@@ -8,8 +8,8 @@ import practice2.core.member.MemoryMemberRepository;
 
 public class OrderServiceImpl implements OrderService{
 
-    MemberRepository memberRepository = new MemoryMemberRepository();
-    DiscountPolicy discountPolicy = new FixDisountPolicy();
+    private final MemberRepository memberRepository = new MemoryMemberRepository();
+    private final DiscountPolicy discountPolicy = new FixDisountPolicy();
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
