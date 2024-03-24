@@ -1,24 +1,20 @@
 package practice2.core.discount;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import practice2.core.AppConfig;
 import practice2.core.member.Grade;
 import practice2.core.member.Member;
 import practice2.core.member.MemberService;
-import practice2.core.member.MemberServiceImpl;
-import practice2.core.order.Order;
 import practice2.core.order.OrderService;
-import practice2.core.order.OrderServiceImpl;
 
 import static org.assertj.core.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.*;
 
 class RateDiscountPolicyTest {
-
-    MemberService memberService = new MemberServiceImpl();
-    OrderService orderService = new OrderServiceImpl();
-    RateDiscountPolicy discountPolicy = new RateDiscountPolicy();
+    AppConfig appConfig = new AppConfig();
+    MemberService memberService = appConfig.memberService();
+    OrderService orderService = appConfig.orderService();
+    DiscountPolicy discountPolicy = appConfig.discountPolicy();
 
     @Test
     @DisplayName("VIP는 10% 할인이 적용되어야한다.")

@@ -2,6 +2,7 @@ package practice2.core.order;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
+import practice2.core.AppConfig;
 import practice2.core.member.Grade;
 import practice2.core.member.Member;
 import practice2.core.member.MemberService;
@@ -9,8 +10,9 @@ import practice2.core.member.MemberServiceImpl;
 
 public class OrderServiceTest {
 
-    private MemberService memberService = new MemberServiceImpl();
-    private OrderService orderService = new OrderServiceImpl();
+    private final AppConfig appConfig = new AppConfig();
+    private MemberService memberService = appConfig.memberService();
+    private OrderService orderService = appConfig.orderService();
 
     @Test
     void createVipMemberOrder() {
