@@ -1,2 +1,21 @@
-package practice2.core.order;public class OrderServiceImpl {
+package practice2.core.order;
+
+import practice2.core.discount.DiscountPolicy;
+import practice2.core.discount.FixDisountPolicy;
+import practice2.core.member.Member;
+import practice2.core.member.MemberRepository;
+import practice2.core.member.MemoryMemberRepository;
+
+public class OrderServiceImpl implements OrderService{
+
+    MemberRepository memberRepository = new MemoryMemberRepository();
+    DiscountPolicy discountPolicy = new FixDisountPolicy();
+
+    @Override
+    public Order createOrder(Long memberId, String itemName, int itemPrice) {
+        Member findMember = memberRepository.findById(memberId);
+        int discountPrice = discountPolicy.discount(findMember, itemPrice);
+
+        return new Order(memberId, itemName, itemPrice, discountPrice);
+    }
 }
