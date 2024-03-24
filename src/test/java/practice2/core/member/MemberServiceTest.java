@@ -1,14 +1,22 @@
 package practice2.core.member;
 
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import practice2.core.AppConfig;
 
 public class MemberServiceTest {
 
-    AppConfig appConfig = new AppConfig();
-    private final MemberService memberService = appConfig.memberService();
+    private AppConfig appConfig;
+    private MemberService memberService;
+
+    @BeforeEach
+    public void beforeEach() {
+        appConfig = new AppConfig();
+
+        memberService = appConfig.memberService();
+    }
 
     @Test
     @DisplayName("멤버 가입 테스트")

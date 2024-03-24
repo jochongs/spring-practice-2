@@ -1,5 +1,6 @@
 package practice2.core.discount;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import practice2.core.AppConfig;
@@ -11,10 +12,18 @@ import practice2.core.order.OrderService;
 import static org.assertj.core.api.Assertions.*;
 
 class RateDiscountPolicyTest {
-    AppConfig appConfig = new AppConfig();
-    MemberService memberService = appConfig.memberService();
-    OrderService orderService = appConfig.orderService();
-    DiscountPolicy discountPolicy = appConfig.discountPolicy();
+    private AppConfig appConfig;
+
+    private MemberService memberService;
+    private DiscountPolicy discountPolicy;
+
+    @BeforeEach
+    public void beforeEach() {
+        appConfig = new AppConfig();
+
+        memberService = appConfig.memberService();
+        discountPolicy = appConfig.discountPolicy();
+    }
 
     @Test
     @DisplayName("VIP는 10% 할인이 적용되어야한다.")
