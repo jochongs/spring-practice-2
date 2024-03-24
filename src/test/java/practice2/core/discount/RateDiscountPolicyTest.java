@@ -12,14 +12,12 @@ import practice2.core.order.OrderService;
 import static org.assertj.core.api.Assertions.*;
 
 class RateDiscountPolicyTest {
-    private AppConfig appConfig;
-
     private MemberService memberService;
     private DiscountPolicy discountPolicy;
 
     @BeforeEach
     public void beforeEach() {
-        appConfig = new AppConfig();
+        AppConfig appConfig = new AppConfig();
 
         memberService = appConfig.memberService();
         discountPolicy = appConfig.discountPolicy();
