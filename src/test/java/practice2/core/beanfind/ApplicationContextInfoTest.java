@@ -20,4 +20,19 @@ public class ApplicationContextInfoTest {
             System.out.println("bean = " + bean);
         }
     }
+
+    @Test
+    @DisplayName("Print all of spring application beans")
+    void findApplicationBean() {
+        String[] beanDefinitionNames = ac.getBeanDefinitionNames();
+        for (String beanDefinitionName : beanDefinitionNames) {
+            BeanDefinition beanDefinition = ac.getBeanDefinition(beanDefinitionName);
+
+            if (beanDefinition.getRole() == BeanDefinition.ROLE_APPLICATION) {
+                Object bean = ac.getBean(beanDefinitionName);
+
+                System.out.println("bean = " + bean);
+            }
+        }
+    }
 }
