@@ -31,7 +31,7 @@ public class ApplicationContextExtendsFindTest {
 
     @Test
     @DisplayName("Get bean by bean name")
-    void findBeanByparentTypeBeanName() {
+    void findBeanByParentTypeBeanName() {
         DiscountPolicy rateDiscountPolicy = ac.getBean("rateDiscountPolicy", DiscountPolicy.class);
 
         assertThat(rateDiscountPolicy).isInstanceOf(DiscountPolicy.class);
@@ -76,7 +76,7 @@ public class ApplicationContextExtendsFindTest {
         }
 
         @Bean
-        public DiscountPolicy fixDisountPolicy() {
+        public DiscountPolicy fixDiscountPolicy() {
             return new FixDisountPolicy();
         }
     }
