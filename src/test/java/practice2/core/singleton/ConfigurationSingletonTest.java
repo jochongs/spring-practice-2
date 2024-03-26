@@ -18,5 +18,8 @@ public class ConfigurationSingletonTest {
         OrderServiceImpl orderService = ac.getBean("orderService", OrderServiceImpl.class);
 
         Assertions.assertThat(memberService.getMemberRepository()).isSameAs(orderService.getMemberRepository());
+
+        System.out.println("memberService.getMemberRepository() = " + memberService.getMemberRepository());
+        System.out.println("orderService.getMemberRepository() = " + orderService.getMemberRepository());
     }
 }
