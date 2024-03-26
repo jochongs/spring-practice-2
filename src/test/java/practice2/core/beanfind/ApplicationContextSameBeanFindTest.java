@@ -12,6 +12,8 @@ import practice2.core.discount.DiscountPolicy;
 import practice2.core.member.MemberRepository;
 import practice2.core.member.MemoryMemberRepository;
 
+import java.util.Map;
+
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -33,6 +35,18 @@ public class ApplicationContextSameBeanFindTest {
     void findByBeanName() {
         MemberRepository memberRepository = ac.getBean("memberRepository1", MemberRepository.class);
         assertThat(memberRepository).isInstanceOf(MemberRepository.class);
+    }
+
+    @Test
+    @DisplayName("Find all bean by class type")
+    void findAllByBeanType() {
+        Map<String, MemberRepository> repositoryMap = ac.getBeansOfType(MemberRepository.class);
+
+        for (String key : repositoryMap.keySet()) {
+            System.out.println("key = " + key);
+        }
+
+        assertThat(repositoryMap.size()).isEqualTo(2);
     }
 
     @Configuration
