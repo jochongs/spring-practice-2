@@ -12,6 +12,8 @@ import practice2.core.discount.DiscountPolicy;
 import practice2.core.discount.FixDisountPolicy;
 import practice2.core.discount.RateDiscountPolicy;
 
+import java.util.Map;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class ApplicationContextExtendsFindTest {
@@ -41,6 +43,29 @@ public class ApplicationContextExtendsFindTest {
         RateDiscountPolicy rateDiscountPolicy = ac.getBean(RateDiscountPolicy.class);
 
         assertThat(rateDiscountPolicy).isInstanceOf(RateDiscountPolicy.class);
+    }
+
+    @Test
+    @DisplayName("Find beans by parent class type")
+    void findAllBeansByParentType() {
+        Map<String, DiscountPolicy> beans = ac.getBeansOfType(DiscountPolicy.class);
+
+        assertThat(beans.size()).isEqualTo(2);
+
+        for (String key: beans.keySet()) {
+            System.out.println("key = " + key);
+            System.out.println("Value = " + beans.get(key));
+        }
+    }
+
+    @Test
+    @DisplayName("Find beans by Object type")
+    void findBeansByObjectType() {
+        Map<String, Object> beans = ac.getBeansOfType(Object.class);
+
+        for (String key : beans.keySet()) {
+            System.out.println("Key = " + key);
+        }
     }
 
     @Configuration
