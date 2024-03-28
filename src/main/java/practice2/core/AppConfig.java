@@ -11,7 +11,7 @@ import practice2.core.member.MemoryMemberRepository;
 import practice2.core.order.OrderService;
 import practice2.core.order.OrderServiceImpl;
 
-@Configuration
+//@Configuration
 public class AppConfig {
 
     @Bean
