@@ -3,7 +3,7 @@ package practice2.core.discount;
 import practice2.core.member.Grade;
 import practice2.core.member.Member;
 
-public class FixDisountPolicy implements DiscountPolicy{
+public class FixDiscountPolicy implements DiscountPolicy{
 
     private final int discountFixAmount = 1000;
 

@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import practice2.core.AppConfig;
 import practice2.core.discount.DiscountPolicy;
-import practice2.core.discount.FixDisountPolicy;
+import practice2.core.discount.FixDiscountPolicy;
 import practice2.core.discount.RateDiscountPolicy;
 
 import java.util.Map;
@@ -77,7 +77,7 @@ public class ApplicationContextExtendsFindTest {
 
         @Bean
         public DiscountPolicy fixDiscountPolicy() {
-            return new FixDisountPolicy();
+            return new FixDiscountPolicy();
         }
     }
 }
