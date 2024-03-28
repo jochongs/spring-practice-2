@@ -1,11 +1,14 @@
 package practice2.core.scan;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import practice2.core.AutoAppConfig;
 import practice2.core.member.MemberRepository;
 import practice2.core.member.MemberService;
 import practice2.core.member.MemberServiceImpl;
+
+import static org.assertj.core.api.Assertions.*;
 
 public class AutoAppConfigTest {
 
@@ -18,5 +21,7 @@ public class AutoAppConfigTest {
 
         System.out.println("memberRepository = " + memberRepository);
         System.out.println("memberService.getMemberRepository() = " + memberService.getMemberRepository());
+
+        assertThat(memberService.getMemberRepository()).isSameAs(memberRepository);
     }
 }
