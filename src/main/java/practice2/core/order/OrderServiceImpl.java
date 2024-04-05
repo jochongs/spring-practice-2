@@ -3,6 +3,7 @@ package practice2.core.order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
+import practice2.core.annotation.MainDiscountPolicy;
 import practice2.core.discount.DiscountPolicy;
 import practice2.core.member.Member;
 import practice2.core.member.MemberRepository;
@@ -16,8 +17,8 @@ public class OrderServiceImpl implements OrderService{
     @Autowired
     public OrderServiceImpl(
             MemberRepository memberRepository,
-            DiscountPolicy discountPolicy
-    ) {
+            @MainDiscountPolicy DiscountPolicy discountPolicy
+            ) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
     }
