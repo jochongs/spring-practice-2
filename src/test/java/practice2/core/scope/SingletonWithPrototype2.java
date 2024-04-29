@@ -22,8 +22,6 @@ public class SingletonWithPrototype2 {
         SingletonBean singletonBean1 = ac.getBean(SingletonBean.class);
         int count2 = singletonBean1.logic();
         Assertions.assertThat(count2).isEqualTo(1);
-
-        ac.close();
     }
 
     @Scope("prototype")
